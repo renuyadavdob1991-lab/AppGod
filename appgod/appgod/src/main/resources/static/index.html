@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APP GOD | Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#10131b">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+</head>
+
+<body>
+
+    <main class="calculator">
+
+        <header>
+            <h1>APP GOD <span>🍎</span></h1>
+            <p>Smart Calculator</p>
+        </header>
+
+        <section class="display">
+            <div id="previous"></div>
+            <div id="current">0</div>
+        </section>
+
+        <section class="buttons">
+            <button class="special" data-action="clear">AC</button>
+            <button class="special" data-action="delete">DEL</button>
+            <button class="special" data-action="percent">%</button>
+            <button class="operator" data-operation="divide">÷</button>
+
+            <button data-number="7">7</button>
+            <button data-number="8">8</button>
+            <button data-number="9">9</button>
+            <button class="operator" data-operation="multiply">×</button>
+
+            <button data-number="4">4</button>
+            <button data-number="5">5</button>
+            <button data-number="6">6</button>
+            <button class="operator" data-operation="subtract">−</button>
+
+            <button data-number="1">1</button>
+            <button data-number="2">2</button>
+            <button data-number="3">3</button>
+            <button class="operator" data-operation="add">+</button>
+
+            <button class="zero" data-number="0">0</button>
+            <button data-number=".">.</button>
+            <button class="equals" data-action="calculate">=</button>
+        </section>
+
+        <footer>Powered by Rishabh kumar / Hacker 101 🍵</footer>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
