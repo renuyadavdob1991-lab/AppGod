@@ -1,8 +1,12 @@
-const CACHE_NAME = "appgod-v2";
+const CACHE_NAME = "appgod-v3";
 
 const FILES_TO_CACHE = [
   "/",
   "/index.html",
+  "/calculator.html",
+  "/site.css",
+  "/site.js",
+  "/gate.js",
   "/style.css",
   "/script.js",
   "/manifest.json",

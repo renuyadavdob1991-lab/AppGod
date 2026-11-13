@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APP GOD | Calculator</title>
+    <meta name="theme-color" content="#10131b">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icon-192.png">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="gate.js"></script>
+    <style>
+        /* lock screen: only visible when the app is not installed */
+        #lock { display: none; }
+        html.locked .calculator { display: none; }
+        html.locked #lock { display: block; }
+
+        #lock {
+            width: 100%;
+            max-width: 400px;
+            padding: 32px 26px;
+            border-radius: 25px;
+            background: #1c2230;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        #lock .lock-icon { font-size: 44px; margin-bottom: 10px; }
+        #lock h1 { font-size: 24px; letter-spacing: 1px; margin-bottom: 10px; }
+        #lock p { color: #929bad; font-size: 15px; line-height: 1.6; margin-bottom: 20px; }
+
+        #lock a {
+            display: inline-block;
+            padding: 13px 24px;
+            border-radius: 14px;
+            background: #4090ff;
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        #lock small { display: block; margin-top: 18px; color: #78869e; font-size: 12px; }
+    </style>
+</head>
+
+<body>
+
+<section id="lock">
+    <div class="lock-icon">🔒</div>
+    <h1>Install APP GOD first</h1>
+    <p>This calculator opens only inside the installed app. Install it on your phone or laptop, then open it from your home screen or desktop.</p>
+    <a href="/#install">Show me how to install</a>
+    <small>Already installed? Open APP GOD from your desktop, Start menu or home screen.</small>
+</section>
+
+<main class="calculator">
+
+    <header>
+        <h1>APP GOD <span>🍎</span></h1>
+        <p>Smart Calculator</p>
+    </header>
+
+    <section class="display">
+        <div id="previous"></div>
+        <div id="current">0</div>
+    </section>
+
+    <section class="buttons">
+        <button class="special" data-action="clear">AC</button>
+        <button class="special" data-action="delete">DEL</button>
+        <button class="special" data-action="percent">%</button>
+        <button class="operator" data-operation="divide">÷</button>
+
+        <button data-number="7">7</button>
+        <button data-number="8">8</button>
+        <button data-number="9">9</button>
+        <button class="operator" data-operation="multiply">×</button>
+
+        <button data-number="4">4</button>
+        <button data-number="5">5</button>
+        <button data-number="6">6</button>
+        <button class="operator" data-operation="subtract">−</button>
+
+        <button data-number="1">1</button>
+        <button data-number="2">2</button>
+        <button data-number="3">3</button>
+        <button class="operator" data-operation="add">+</button>
+
+        <button class="zero" data-number="0">0</button>
+        <button data-number=".">.</button>
+        <button class="equals" data-action="calculate">=</button>
+    </section>
+
+    <footer>Powered by Java &amp; Spring Boot</footer>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
