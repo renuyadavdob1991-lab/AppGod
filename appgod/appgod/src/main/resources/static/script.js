@@ -162,3 +162,45 @@ if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("/sw.js");
   });
 }
+// ===== KEYBOARD SUPPORT =====
+const keyMap = {
+  "+": '[data-operation="add"]',
+  "-": '[data-operation="subtract"]',
+  "*": '[data-operation="multiply"]',
+  "x": '[data-operation="multiply"]',
+  "/": '[data-operation="divide"]',
+  "%": '[data-action="percent"]',
+  "Enter": '[data-action="calculate"]',
+  "=": '[data-action="calculate"]',
+  "Backspace": '[data-action="delete"]',
+  "Escape": '[data-action="clear"]',
+  "Delete": '[data-action="clear"]',
+  "c": '[data-action="clear"]',
+  "C": '[data-action="clear"]'
+};
+
+document.addEventListener("keydown", (event) => {
+  // let browser shortcuts like Ctrl+R still work
+  if (event.ctrlKey || event.metaKey || event.altKey) return;
+
+  let selector = null;
+
+  if ((event.key >= "0" && event.key <= "9") || event.key === ".") {
+    selector = `[data-number="${event.key}"]`;
+  } else if (keyMap[event.key]) {
+    selector = keyMap[event.key];
+  }
+
+  if (!selector) return;
+
+  event.preventDefault();
+
+  const button = document.querySelector(selector);
+  if (!button) return;
+
+  button.click();
+
+  // little press animation
+  button.classList.add("pressed");
+  setTimeout(() => button.classList.remove("pressed"), 120);
+});
