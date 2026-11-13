@@ -1,4 +1,4 @@
-const CACHE_NAME = "appgod-v1";
+const CACHE_NAME = "appgod-v2";
 
 const FILES_TO_CACHE = [
   "/",
@@ -30,7 +30,7 @@ self.addEventListener("activate", (event) => {
   self.clients.claim();
 });
 
-// Fetch: never cache API calls, use network-first for files with cache as backup
+// Fetch: never cache API calls, network-first with cache as backup
 self.addEventListener("fetch", (event) => {
   const request = event.request;
   const url = new URL(request.url);
@@ -42,8 +42,11 @@ self.addEventListener("fetch", (event) => {
   event.respondWith(
     fetch(request)
       .then((response) => {
-        const copy = response.clone();
-        caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
+        // only save good responses
+        if (response.ok) {
+          const copy = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
+        }
         return response;
       })
       .catch(() => caches.match(request))
