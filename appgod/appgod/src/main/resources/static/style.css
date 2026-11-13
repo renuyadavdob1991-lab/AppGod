@@ -120,3 +120,7 @@ footer {
     color: #78869e;
     font-size: 11px;
 }
+button.pressed {
+    transform: scale(0.94);
+    filter: brightness(1.4);
+}
