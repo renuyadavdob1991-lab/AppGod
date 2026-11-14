@@ -3,58 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APP GOD | Calculator</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Hacker 101 | Student Developer &amp; APP GOD Calculator</title>
+    <meta name="description" content="Hi, I'm Rishabh kumar, a student who loves coding, robotics and cybersecurity. Explore my personal portfolio website and install APP GOD, my Java-powered calculator app.">
     <meta name="theme-color" content="#10131b">
-<link rel="manifest" href="manifest.json">
-<link rel="icon" href="icon-192.png">
-<link rel="apple-touch-icon" href="icon-192.png">
+    <meta property="og:title" content="Rishabh kumar | Student Developer">
+    <meta property="og:description" content="My portfolio website and APP GOD, a Java-powered installable calculator app.">
+    <meta property="og:type" content="website">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icon-192.png">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <link rel="stylesheet" href="site.css">
 </head>
-
 <body>
 
-    <main class="calculator">
+<header class="nav">
+    <a class="brand" href="#top">Rishabh kumar <span>🍵</span></a>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#install">Install</a>
+    </nav>
+</header>
 
-        <header>
-            <h1>APP GOD <span>🍎</span></h1>
-            <p>Smart Calculator</p>
-        </header>
+<main id="top">
 
-        <section class="display">
-            <div id="previous"></div>
-            <div id="current">0</div>
-        </section>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-text">
+            <p class="eyebrow">Student &bull; Coder &bull; Robotics lover</p>
+            <h1>Hi, I'm <span class="grad">Rishabh kumar</span> 👋</h1>
+            <p class="lead">I build things with code. I'm a student who loves robotics, programming and cybersecurity, and I'm learning by shipping real projects.</p>
+            <div class="actions">
+                <a class="btn primary" href="#projects">See my projects</a>
+                <button class="btn ghost" id="heroInstall" type="button">Install APP GOD 🍎</button>
+            </div>
+        </div>
 
-        <section class="buttons">
-            <button class="special" data-action="clear">AC</button>
-            <button class="special" data-action="delete">DEL</button>
-            <button class="special" data-action="percent">%</button>
-            <button class="operator" data-operation="divide">÷</button>
+        <div class="hero-visual" aria-hidden="true">
+            <div class="mini-calc">
+                <div class="mini-title">APP GOD 🍎</div>
+                <div class="mini-display">2026</div>
+                <div class="mini-grid">
+                    <i class="s"></i><i class="s"></i><i class="s"></i><i class="o"></i>
+                    <i></i><i></i><i></i><i class="o"></i>
+                    <i></i><i></i><i></i><i class="o"></i>
+                    <i></i><i></i><i></i><i class="o"></i>
+                    <i class="z"></i><i></i><i class="e"></i>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <button data-number="7">7</button>
-            <button data-number="8">8</button>
-            <button data-number="9">9</button>
-            <button class="operator" data-operation="multiply">×</button>
+    <!-- ABOUT -->
+    <section id="about" class="section">
+        <h2>About me</h2>
+        <div class="about-grid">
+            <p>I'm a student who enjoys turning ideas into working things. Robotics is my strongest skill, and I also write code and explore how security works. This site shows the two projects I'm proudest of so far.</p>
+            <ul class="skills">
+                <li>🤖 Robotics</li>
+                <li>💻 Coding</li>
+                <li>🛡️ Cybersecurity basics</li>
+                <li>☕ Java &amp; Spring Boot</li>
+                <li>🌐 HTML, CSS &amp; JavaScript</li>
+            </ul>
+        </div>
+    </section>
 
-            <button data-number="4">4</button>
-            <button data-number="5">5</button>
-            <button data-number="6">6</button>
-            <button class="operator" data-operation="subtract">−</button>
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+        <h2>My projects</h2>
+        <div class="cards">
 
-            <button data-number="1">1</button>
-            <button data-number="2">2</button>
-            <button data-number="3">3</button>
-            <button class="operator" data-operation="add">+</button>
+            <article class="card">
+                <div class="card-icon">🌐</div>
+                <h3>Computer club webite of my shcool</h3>
+                <p>My first website, online for anyone to visit. It shows About my team and what I build, and it's where my journey as a developer started.</p>
+                <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>GitHub</li></ul>
+                <a class="btn ghost" id="portfolioLink" href= "https://renuyadavdob1991-lab.github.io/Computer-club-website/#projects " target="_blank" rel="noopener">Visit website →</a>
+            </article>
 
-            <button class="zero" data-number="0">0</button>
-            <button data-number=".">.</button>
-            <button class="equals" data-action="calculate">=</button>
-        </section>
+            <article class="card featured">
+                <div class="badge">Installable app</div>
+                <div class="card-icon">🧮</div>
+                <h3>APP GOD Calculator</h3>
+                <p>A smart calculator powered by a <strong>Java + Spring Boot</strong> backend. It installs on your phone or laptop like a real app, works with your keyboard, and runs full-screen.</p>
+                <ul class="tags"><li>Java 25</li><li>Spring Boot</li><li>PWA</li><li>Docker</li><li>Render</li></ul>
+                <p class="note">🔒 The calculator opens only inside the installed app.</p>
+                <div class="actions">
+                    <button class="btn primary" id="cardInstall" type="button">Install APP GOD</button>
+                    <a class="btn ghost" id="openCalc" href="calculator.html" hidden>Open calculator</a>
+                </div>
+            </article>
 
-        <footer>Powered by Rishabh kumar / Hacker 101 🍵</footer>
+        </div>
+    </section>
 
-    </main>
+    <!-- INSTALL -->
+    <section id="install" class="section">
+        <h2>How to install APP GOD</h2>
+        <p class="sub" id="installMsg">Installing takes about 10 seconds. After that, APP GOD opens from your home screen or desktop like any other app.</p>
+        <div class="steps">
+            <div class="step-box">
+                <h3>💻 Laptop or PC (Chrome)</h3>
+                <ol>
+                    <li>Open this page in <strong>Google Chrome</strong>.</li>
+                    <li>Click the <strong>Install APP GOD</strong> button, or the install icon on the right side of the address bar.</li>
+                    <li>Click <strong>Install</strong>. APP GOD opens in its own window.</li>
+                </ol>
+            </div>
+            <div class="step-box">
+                <h3>📱 Android phone (Chrome)</h3>
+                <ol>
+                    <li>Open this page in <strong>Google Chrome</strong>.</li>
+                    <li>Tap <strong>⋮</strong> then <strong>Add to Home Screen</strong> (or <strong>Install app</strong>).</li>
+                    <li>Tap <strong>Install</strong>, then open <strong>APP GOD</strong> from your home screen.</li>
+                </ol>
+            </div>
+            <div class="step-box">
+                <h3>🍏 iPhone or iPad (Safari)</h3>
+                <ol>
+                    <li>Open this page in <strong>Safari</strong>.</li>
+                    <li>Tap the <strong>Share</strong> button, then <strong>Add to Home Screen</strong>.</li>
+                    <li>Tap <strong>Add</strong>, then open <strong>APP GOD</strong> from your home screen.</li>
+                </ol>
+            </div>
+        </div>
+        <p class="note center">The first visit can take up to a minute while the free server wakes up. 😴➡️⚡</p>
+    </section>
 
-    <script src="script.js"></script>
+    <!-- BUILT WITH -->
+    <section class="section">
+        <h2>Built with</h2>
+        <ul class="chips">
+            <li>Java</li><li>Spring Boot</li><li>Maven</li><li>HTML</li><li>CSS</li><li>JavaScript</li>
+            <li>PWA</li><li>Git &amp; GitHub</li><li>Docker</li><li>Render</li><li>VS Code</li><li>Claude AI</li>
+        </ul>
+    </section>
+
+</main>
+
+<footer class="foot">
+    <p>&copy; 2026 Hacker 101 &bull; Built with Java, HTML, CSS &amp; JavaScript 🍎</p>
+</footer>
+
+<script src="site.js"></script>
 </body>
 </html>

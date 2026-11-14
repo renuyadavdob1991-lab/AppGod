@@ -1,8 +1,9 @@
 {
+  "id": "/",
   "name": "APP GOD Calculator",
   "short_name": "APP GOD",
   "description": "A smart calculator powered by Java and Spring Boot.",
-  "start_url": "/",
+  "start_url": "/calculator.html",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
