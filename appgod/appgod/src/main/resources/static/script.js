@@ -204,3 +204,78 @@ document.addEventListener("keydown", (event) => {
   button.classList.add("pressed");
   setTimeout(() => button.classList.remove("pressed"), 120);
 });
+// ===== CHAINED MATH (2 + 3 + 4 works without pressing =) =====
+// This replaces the old selectOperation above (the last definition wins).
+let busy = false;        // true while the server is calculating a chain step
+const waitingKeys = [];  // buttons pressed while the server was busy
+
+// If you press buttons while the server is busy, remember them and replay in order
+document.addEventListener("click", (event) => {
+    const button = event.target.closest("button");
+    if (!button || button.dataset.replay) return;
+    if (busy) {
+        event.stopImmediatePropagation();
+        waitingKeys.push(button);
+    }
+}, true);
+
+function replayWaitingKeys() {
+    while (waitingKeys.length && !busy) {
+        const button = waitingKeys.shift();
+        button.dataset.replay = "1";
+        button.click();
+        delete button.dataset.replay;
+    }
+}
+
+async function selectOperation(operation) {
+    // Operator pressed right after another operator: just switch it
+    if (selectedOperation !== null && shouldReset) {
+        selectedOperation = operation;
+        previousDisplay.textContent = firstNumber + " " + getSymbol(operation);
+        return;
+    }
+
+    // Chained math: finish the pending calculation first
+    if (selectedOperation !== null && !shouldReset) {
+        busy = true;
+        try {
+            const response = await fetch("/api/calculate", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    a: firstNumber,
+                    b: Number(currentValue),
+                    operation: selectedOperation
+                })
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || "Calculation failed");
+            }
+
+            currentValue = String(data.result);
+        } catch (error) {
+            currentValue = error.message;
+            firstNumber = null;
+            selectedOperation = null;
+            shouldReset = true;
+            previousDisplay.textContent = "";
+            updateDisplay();
+            busy = false;
+            waitingKeys.length = 0;
+            return;
+        }
+        updateDisplay();
+    }
+
+    firstNumber = Number(currentValue);
+    selectedOperation = operation;
+    previousDisplay.textContent = currentValue + " " + getSymbol(operation);
+    shouldReset = true;
+
+    busy = false;
+    replayWaitingKeys();
+}
