@@ -6,8 +6,10 @@ function isInstalledApp() {
         window.matchMedia("(display-mode: minimal-ui)").matches ||
         window.navigator.standalone === true
     );
+}// Inside the installed app? Go straight to the calculator.
+if (isInstalledApp()) {
+    location.replace("/calculator.html");
 }
-
 const installButtons = [
     document.getElementById("heroInstall"),
     document.getElementById("cardInstall")
